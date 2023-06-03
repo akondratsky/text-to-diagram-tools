@@ -1,0 +1,46 @@
+# examples from the documentation
+
+# this is BTW a container
+Icons {
+  my network: {
+    icon: https://icons.terrastruct.com/infra/019-network.svg
+  }
+  
+  server: {
+    shape: image
+    icon: https://icons.terrastruct.com/tech/022-server.svg
+  }
+}
+
+
+SQL Tables {
+  objects: {
+    shape: sql_table
+    id: int {constraint: primary_key}
+    disk: int {constraint: foreign_key}
+  
+    json: jsonb  {constraint: unique}
+    last_updated: timestamp with time zone
+  }
+  
+  disks: {
+    shape: sql_table
+    id: int {constraint: primary_key}
+  }
+  
+  objects.disk -> disks.id
+}
+
+UML Class: {
+  shape: class
+
+  +reader: io.RuneReader
+  readerPos: d2ast.Position
+  -lookahead: "[]rune"
+  \#lookaheadPos: d2ast.Position
+
+  +peek(): (r rune, eof bool)
+  rewind()
+  commit()
+  \#peekn(n int): (s string, eof bool)
+}

@@ -1,0 +1,98 @@
+@startuml Templates Flow
+
+skinparam linetype ortho
+
+<style>
+  .redclass {
+    LineColor Red
+  }
+  .greenclass {
+    LineColor Green
+  }
+  .blueclass {
+    LineColor Blue
+  }
+</style>
+
+package "Basic App" as Foundation {
+  package "templates" {
+    [api template]
+    [page template] as PageTemplate
+    [project template]
+    [slice template] as SliceTemplate
+
+    component CliConfig [
+      **config.json**
+      dependencies and files
+      to remove or add according
+      to the dependencies
+    ]
+  }
+
+  package "source code" {
+    component RoutingFiles [
+      **ROUTING FILES:**
+      src/routes/index.tsx
+      src/routes/constants.ts
+    ]
+
+    component StoreFiles [
+      **STORE FILES:**
+      src/store/rootReducer.ts
+    ]
+
+    component ApiFiles [
+      **API FILES**
+      src/api/constants
+    ]
+  }
+}
+
+'note top of Basic App
+'end note
+
+package CLI {
+  package "create" {
+    [project]
+    [experience]
+  }
+
+  package "add" {
+    component AddComponentCommand [
+      **ADD COMPONENT**
+      validates component name
+      takes component and type
+      copies "template" (ts file)
+      renames entries in it
+    ]
+
+    component AddPageCommand [
+      **ADD PAGE**
+      validates options
+      apply templates
+      **adds page to the router!!**
+    ]
+
+    component AddSliceCommand [
+      **ADD SLICE**
+      edits routing files
+      uses templates
+    ]
+
+    component AddApiCommand [
+      **ADD API**
+      edits API constants
+      uses templates
+    ]
+  }
+
+  [component "template"] as ComponentTemplate
+
+  AddComponentCommand --> ComponentTemplate
+  AddSliceCommand --> SliceTemplate <<redclass>>
+  AddPageCommand --> PageTemplate <<blueclass>>
+  AddPageCommand --> RoutingFiles <<blueclass>>: Edit
+  AddApiCommand --> ApiFiles <<greenclass>>: Edit
+}
+
+@enduml

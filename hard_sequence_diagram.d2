@@ -1,0 +1,56 @@
+title: {
+  near: top-center
+  label: |md 
+    # D2 Sequence Diagram
+  |
+}
+
+shape: sequence_diagram
+
+A; B; C; D; E; O; F
+
+# There are always drawbacks: no notes!
+explanation: |md
+  ## Legend
+  - A - Note about A
+  - B - Note about B
+  - C - Note etc
+  - D - Note
+  - E - Note
+  - F - Note
+  - O - Note
+| {  near: center-left }
+
+
+A.process -> B.process: dispatch 1
+B.process -> C.process: dispatch 2
+C.process -> D.calculation: dispatch 3
+
+D.calculation -> E.1: dispatch 4
+D.calculation <-- E.1: return {
+  style.stroke-dash: 2
+}
+
+D.calculation -> D.calculation.subMethod: dispatch 5
+D.calculation.subMethod -> D.calculation: dispatch 6
+
+D.calculation -> O.dbRequst: dispatch 7
+O.dbRequst -> D.calculation: return {
+  style.stroke-dash: 2
+}
+
+# just add some code
+
+A.process -> D.2: dispatch 8
+D.2 -> O.1: dispatch 9
+O.1 -> D.2: return {
+  style.stroke-dash: 2
+}
+
+
+D.2 -> D.2.1: dispatch 10 
+D.2.1 -> F.1: dispatch 11
+
+A.process <- F.1: return {
+  style.stroke-dash: 2
+}

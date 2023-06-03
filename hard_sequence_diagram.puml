@@ -1,0 +1,66 @@
+@startuml hard-sequence-diagram
+
+participant "Module A" as A
+participant "Module B" as B
+participant "Module C" as C
+participant "Module D" as D
+participant "Module E" as E
+participant "Module F" as F
+participant "Module G" as G
+
+' not sure if D2 can do it - notes on the same level
+note over A: Note
+/ note over B: Note
+/ note over C: Note
+/ note over D: Note
+/ note over E: Note
+/ note over F: Note
+/ note over G: <&wifi>
+
+A -> B: dispatch
+activate A
+
+activate B
+B -> C: dispatch
+deactivate B
+
+activate C
+C -> D: dispatch
+deactivate C
+
+activate D
+D -> E: dispatch
+
+activate E
+D <-- E: return
+deactivate E
+
+D -> D: dispatch
+activate D
+D -> D: dispatch
+deactivate D
+
+' OOPS, WE NEED IT TO SPLIT ACTIVITY
+D ->?
+deactivate D
+
+A -> D: dispatch
+activate D
+
+D -> G: dispatch
+activate G
+
+D <-- G: return
+deactivate G
+
+D -> D: dispatch
+activate D
+
+D -> F: dispatch
+deactivate D
+activate F
+
+A <-- F: return
+deactivate F
+
+@enduml

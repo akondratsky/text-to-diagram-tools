@@ -1,0 +1,90 @@
+cli {
+  shape: package
+  label: "CLI \n " # this is hack
+
+  create: {
+    microfrontend
+    core
+  }
+
+  template: component "template"
+
+  add: {
+    component: ADD COMPONENT {
+      text: |md
+        - validates component name
+        - takes component and type
+        - copies 'template' (ts file)
+        - renames entries in it
+      |
+    }
+
+    api: ADD API {
+      text: |md
+        - edits API contants
+        - uses templates
+      |
+    }
+
+    page: ADD PAGE {
+      text: |md
+        - validates options
+        - apply templates
+        - adds page to the router!!
+      |
+    }
+
+    slice: ADD SLICE {
+      text: |md
+        - edits routing files
+        - uses templates
+      |
+    }
+  }
+
+  add.component -> template
+}
+
+foundation: "Basic App \n " {
+  shape: package
+  
+  source: source code {
+    api: API FILES {
+      text: |md
+        - src/api/constants
+      |
+    }
+
+    store: STORE FILES {
+      text: |md
+        - src/store/rootReducer.ts
+      |
+    }
+
+    routing: ROUTING FILES {
+      text: |md
+        - src/routes/index.tsx
+        - src/routes/constants.ts
+      |
+    }
+  }
+
+  templates {
+    page: page template
+    slice: slice template
+    api: api template
+    project: project template
+    config: config.json {
+      text: |md
+        - dependencies and files
+        - to remove or add according
+        - to the dependencies
+      |
+    }
+  }
+}
+
+cli.add.page -> foundation.source.routing: edit
+cli.add.page -> foundation.templates.page
+cli.add.slice -> foundation.templates.slice
+cli.add.api -> foundation.source.api: edit

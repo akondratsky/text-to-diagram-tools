@@ -1,0 +1,38 @@
+@startuml
+
+' comment next line to see a different picture:
+' skinparam Linetype ortho
+
+title "Diagram types"
+
+[Diagram] as Diagram #Yellow
+
+[Structure\nDiagram] as StructureDiagram #GreenYellow
+[Behavior\nDiagram] as BehaviorDiagram #GreenYellow
+
+Diagram <-down- StructureDiagram
+Diagram <-down- BehaviorDiagram
+
+StructureDiagram <-down- [Profile\nDiagram]
+StructureDiagram <-down- [Class\nDiagram]
+StructureDiagram <-down- [Composite\nStructure\nDiagram]
+StructureDiagram <-down- [Componenent\nDiagram]
+StructureDiagram <-down- [Deployment\nDiagram]
+StructureDiagram <-down- [Object\nDiagram]
+StructureDiagram <-down- [Package\nDiagram]
+
+[Interaction\nDiagram] as InteractionDiagram #LightGreen
+
+BehaviorDiagram <-down- [Activity\nDiagram]
+BehaviorDiagram <-down- InteractionDiagram
+BehaviorDiagram <-down- [Use Case\nDiagram]
+BehaviorDiagram <-down- [State Machine\nDiagram]
+
+InteractionDiagram <-down- [Sequence\nDiagram]
+InteractionDiagram <-down- [Communication\nDiagram]
+InteractionDiagram <-down- [Interaction Overview\nDiagram]
+InteractionDiagram <-down- [Timing\nDiagram]
+
+footer //This copied from the specification//
+
+@enduml
