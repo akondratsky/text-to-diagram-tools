@@ -47,31 +47,34 @@ You can take a look at the [Community list of comparisons between Text to Diagra
 
 ## Files in this repository
 
-- [workshop_d2_diagram.d2](./workshop_d2_diagram.d2) Empty file to conduct workshop and show basic principles of building diagrams with D2
+1. [drawio_sequence_diagram.drawio](./drawio_sequence_diagram.drawio) Example of a diagram created with draw.io service. To understand the pain of editing such diagrams, try to add one more request with activation between _dispatch 6_ and _dispatch 7_. It will take **a lot** of actions.
 
-- [drawio_sequence_diagram.drawio](./drawio_sequence_diagram.drawio) Example of a diagram created with draw.io service. To understand the pain of editing such diagrams, try to add one more request with activation between _dispatch 6_ and _dispatch 7_. It will take **a lot** of actions.
+2. [difficult_sequence_diagram.png](./difficult_sequence_diagram.png) Given this example it is really easy to understand than manual diagram drawing is not the solution if you want to edit diagrams.
 
-- [difficult_sequence_diagram.png](./difficult_sequence_diagram.png) Given this example it is really easy to understand than manual diagram drawing is not the solution if you want to edit diagrams.
+3. [workshop_d2_diagram.d2](./workshop_d2_diagram.d2) Empty file to conduct workshop and show basic principles of building diagrams with D2
 
-- [hard_sequence_diagram.d2](./hard_sequence_diagram.d2) This example with the same complexity as **draw.io** diagram, but done with D2. You can try to add activation between _dispatch 6_ and _dispatch 7_ just with adding the code:
+4. [hard_sequence_diagram.d2](./hard_sequence_diagram.d2) This example with the same complexity as **draw.io** diagram, but done with D2. You can try to add activation between _dispatch 6_ and _dispatch 7_ just with adding the code:
 ```
     D.anotherProcess -> E.activation
     E.activation -> D.anotherProcess: { style.stroke-dash: 2 }
 ```
 
-- [hard_sequence_diagram.puml](./hard_sequence_diagram.puml) Almost the same diagram as previous, but created with PlantUML. This example shows that PlantUML has both more opportunities (like note on the same level) and drawbacks (it is impossible to draw some specific things)
+5. [hard_sequence_diagram.puml](./hard_sequence_diagram.puml) Almost the same diagram as previous, but created with PlantUML. This example shows that PlantUML has both more opportunities (like note on the same level) and drawbacks (it is impossible to draw some specific things)
 
-- [diagram_types.d2](./diagram_types.d2) Regular block diagram, built with D2, represents types of UML diagrams which could be used to represent different aspects of a system. Uncomment one line to make the diagram even more beautiful. It also worth playing with different preview layouts (dagre and elk). You can play with [D2 styles](https://d2lang.com/tour/style) here
+6. [diagram_types.d2](./diagram_types.d2) Regular block diagram, built with D2, represents types of UML diagrams which could be used to represent different aspects of a system. Uncomment one line to make the diagram even more beautiful. It also worth playing with different preview layouts (dagre and elk). You can play with [D2 styles](https://d2lang.com/tour/style) here
 
-- [diagram_types.puml](./diagram_types.puml) The same block diagram with types of UML diagrams, which is made with PlantUML.
+7. [diagram_types.puml](./diagram_types.puml) The same block diagram with types of UML diagrams, which is made with PlantUML.
 
-- [templates_flow.puml](./templates_flow.puml) Real-life example of diagram, result of architecture analysis of existing system. This example shows drawbacks of PlantUML layout engine.
+8. [templates_flow.puml](./templates_flow.puml) Real-life example of diagram, result of architecture analysis of existing system. This example shows drawbacks of PlantUML layout engine.
 
-- [templates_flow.d2](./templates_flow.d2) The same real-life example, built with D2. ELK engine demonstrates much better layout than Dagre
+9. [templates_flow.d2](./templates_flow.d2) The same real-life example, built with D2. ELK engine demonstrates much better layout than Dagre
 
-- [d2-shapes.d2](./d2-shapes.d2) Available basic shapes in D2. Rendered better with ELK.
+10. [d2-shapes.d2](./d2-shapes.d2) Available basic shapes in D2. Rendered better with ELK.
 
-- [d2-features-and-diagrams.d2](./d2-features-and-diagrams.d2) - available features and diagrams (icons, SQL tables etc)
+11. [d2-features-and-diagrams.d2](./d2-features-and-diagrams.d2) - available features and diagrams (icons, SQL tables etc)
 
-- [kroki-markdown.md](./kroki-markdown.md) contains examples of diagrams included into the markdown, rendered with Markdown Kroki vscode extension
+12. [kroki-markdown.md](./kroki-markdown.md) contains examples of diagrams included into the markdown, rendered with Markdown Kroki vscode extension
 
+## Comparison
+
+- [text-to-diagram.com](https://text-to-diagram.com/)
